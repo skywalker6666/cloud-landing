@@ -1,13 +1,13 @@
 // src/app/actions/upload.ts
 'use server';
-import { supabaseServer } from '@/lib/supabase';
+import { supabaseBrowser } from '@/src/lib/supabaseBrowser';
 import { randomUUID } from 'crypto';
 
-export async function createPresignedUrl(filename: string, formId: string) {
+export async function createPresignedUrl(filename: string, formId = 'uploads') {
     const ext = filename.split('.').pop();
     const objectKey = `${formId}/${randomUUID()}.${ext}`;
 
-    const { data, error } = await supabaseServer
+    const { data, error } = await supabaseBrowser
         .storage.from('uploads')
         .createSignedUploadUrl(objectKey);
 

@@ -1,16 +1,10 @@
 // src/app/page.tsx
 import Link from 'next/link';
-import { testDbConnection } from '@/actions/testDB';
 
-
-
-export default async function Home() {
-  // if (process.env.NODE_ENV === 'development') {
-  //   await testDbConnection();
-  // }
+export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center gap-6">
-      <h1 className="text-3xl font-bold">雲啟前哨-入雲助理</h1>
+      <h1 className="text-3xl font-bold">雲啟前哨 MVP</h1>
 
       {/* 導向多步驟表單（Wizard） */}
       <Link
